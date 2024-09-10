@@ -35,8 +35,6 @@
             background: rgba(0, 0, 0, 0); /* Torna o botão invisível */
             cursor: pointer;
             pointer-events: none; /* Inicialmente desativa o botão */
-	    border: 2px dashed red; /* Adiciona uma borda visível para ver a posição */	
-
         }
 
 	.invisible-button.active {
@@ -82,6 +80,100 @@
 	    } else if(i > 7) {
 	    	nextImg = i + '.png?';
 		i++;
+		document.querySelector('.button-image').style.display = 'none';
+		moveInvisibleButton(355, 320, 40, 25);
+	    }
+
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para meu amor</title>
+    <style>
+        body {
+            height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+            margin: 0;
+            background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+            background-position: center center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita repetição da imagem */
+            position: relative;
+            background-image: url('1.png'); /* Imagem inicial */
+        }
+
+        .button-image {
+            position: absolute;
+            top: 408px; /* Posição Y */
+            left: 60px; /* Posição X */
+            width: 28.5px; /* Largura */
+            height: 28.5px; /* Altura */
+            background: url('bell.png'); /* URL da imagem do botão */
+            background-size: cover; /* Ajusta a imagem do botão para cobrir a área */
+            cursor: pointer;
+        }
+
+	.invisible-button {
+            position: absolute;
+            top: 685px; /* Posição Y */
+            left: 107px; /* Posição X */
+            width: 160px; /* Largura */
+            height: 45px; /* Altura */
+            background: rgba(0, 0, 0, 0); /* Torna o botão invisível */
+            cursor: pointer;
+            pointer-events: none; /* Inicialmente desativa o botão */
+	    	
+
+        }
+
+	.invisible-button.active {
+            pointer-events: auto; /* Torna o botão clicável quando a classe 'active' é adicionada */
+        }
+    </style>
+</head>
+<body>
+    <div class="button-image" onclick="updateBackgroundImage()"></div>
+    <div class="invisible-button" onclick="doSomething()"></div>
+    <script>
+	var i = 2;
+	var nextImg = i + '.png?';
+        function updateBackgroundImage() {
+            const newImageUrl = nextImg + new Date().getTime(); // Adiciona um timestamp para evitar cache
+            document.body.style.backgroundImage = `url('${newImageUrl}')`;
+            console.log('Background image updated to:', newImageUrl); // Verifique no console se a função está sendo chamada
+	    showInvisibleButton();
+	    i++;
+	    nextImg = i + '.png?';
+        }
+        function showInvisibleButton() {
+            document.querySelector('.invisible-button').classList.add('active');
+        }
+	function moveInvisibleButton(top, left, width, height) {
+            const invisibleButton = document.querySelector('.invisible-button');
+            invisibleButton.style.top = top + 'px'; // Define a nova posição Y
+            invisibleButton.style.left = left + 'px'; // Define a nova posição X
+	    invisibleButton.style.width = width + 'px'; // Define a nova largura
+            invisibleButton.style.height = height + 'px'; // Define a nova altura
+        }
+        function doSomething() {
+            const newImageUrl = nextImg + new Date().getTime();
+            document.body.style.backgroundImage = `url('${newImageUrl}')`;
+	    console.log('Background image updated to:', newImageUrl); // Verifique no console se a função está sendo chamada
+	    i++;
+	    if(i < 7){
+	    	nextImg = i + '.png?';
+	    } else if(i === 7) {
+	    	moveInvisibleButton(222, 260, 73, 183);
+		nextImg = i + '.png?';
+		const button = document.querySelector('.button-image');
+		button.remove(); // Remove o botão do DOM
+				
+	    } else if(i > 7) {
+	    	nextImg = i + '.png?';
+		i++;
+		document.querySelector('.button-image').style.visibility = 'hidden';
 		document.querySelector('.button-image').style.display = 'none';
 		moveInvisibleButton(355, 320, 40, 25);
 	    }
