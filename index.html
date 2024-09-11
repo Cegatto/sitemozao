@@ -17,10 +17,10 @@
 
         .button-image {
             position: absolute;
-            top: 408px; /* Posição Y */
-            left: 60px; /* Posição X */
-            width: 28.5px; /* Largura */
-            height: 28.5px; /* Altura */
+            top: 364px !important; /* Posição Y */
+            left: 60px !important; /* Posição X */
+            width: 28.5px !important; /* Largura */
+            height: 28.5px !important; /* Altura */
             background: url('bell.png'); /* URL da imagem do botão */
             background-size: cover; /* Ajusta a imagem do botão para cobrir a área */
             cursor: pointer;
@@ -28,10 +28,10 @@
 
 	.invisible-button {
             position: absolute;
-            top: 685px; /* Posição Y */
-            left: 107px; /* Posição X */
-            width: 160px; /* Largura */
-            height: 45px; /* Altura */
+            top: 630px !important; /* Posição Y */
+            left: 101px !important; /* Posição X */
+            width: 160px !important; /* Largura */
+            height: 45px !important; /* Altura */
             background: rgba(0, 0, 0, 0); /* Torna o botão invisível */
             cursor: pointer;
             pointer-events: none; /* Inicialmente desativa o botão */
@@ -74,14 +74,14 @@
 	    if(i < 7){
 	    	nextImg = i + '.png?';
 	    } else if(i === 7) {
-	    	moveInvisibleButton(222, 260, 73, 183);
+	    	moveInvisibleButton(185, 250, 73, 175);
 		nextImg = i + '.png?';
 				
 	    } else if(i > 7) {
 	    	nextImg = i + '.png?';
 		i++;
 		document.querySelector('.button-image').style.display = 'none';
-		moveInvisibleButton(355, 320, 40, 25);
+		moveInvisibleButton(315, 310, 40, 25);
 	    }
 
         }
