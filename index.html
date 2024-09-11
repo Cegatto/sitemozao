@@ -152,10 +152,10 @@
         }
 	function moveInvisibleButton(top, left, width, height) {
             const invisibleButton = document.querySelector('.invisible-button');
-            invisibleButton.style.top = top + 'px'; // Define a nova posição Y
-            invisibleButton.style.left = left + 'px'; // Define a nova posição X
-	    invisibleButton.style.width = width + 'px'; // Define a nova largura
-            invisibleButton.style.height = height + 'px'; // Define a nova altura
+            invisibleButton.style.top = top + 'px' !important; // Define a nova posição Y
+            invisibleButton.style.left = left + 'px' !important; // Define a nova posição X
+	    invisibleButton.style.width = width + 'px' !important; // Define a nova largura
+            invisibleButton.style.height = height + 'px' !important; // Define a nova altura
         }
         function doSomething() {
             const newImageUrl = nextImg + new Date().getTime();
